@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Linking css file -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Add font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration System</title>
+  </head>
+  <body>
+    <!--------------- Nav bar -------------------->
+    <header>
+      <nav>
+        <div class="logo">Student Portal</div>
+        <div class="nav-links">
+          <a href="#">Home</a>
+          <a href="#registerPage">Register</a>
+          <a href="#courses">Courses</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#">Home</a>
+          <a href="#registerPage">Register</a>
+          <a href="#courses">Courses</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!--------------- Offer Banner ----------------->
+      <section class="banner-wrapper">
+        <div class="banner-text">
+          🎉 Special Offer! Enroll now and get 50% off on all courses! Limited
+          time only! 🎉
+        </div>
+      </section>
+      <!--------------- Form Details -------------------->
+      <section id="registerPage" class="container">
+        <div class="form-container">
+          <h2>Student Registration Form</h2>
+          <form id="registrationForm">
+            <div>
+              <label for="name">Name</label>
+              <input type="text" id="name" required />
+              <small id="nameError" style="color: red; display: none"
+                >Name must contain only letters.</small
+              >
+            </div>
+            <div>
+              <label for="studentId">Student ID</label>
+              <input type="text" id="studentId" required />
+            </div>
+            <div>
+              <label for="rollNo">Roll Number</label>
+              <input type="text" id="rollNo" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" required />
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                maxlength="10"
+                pattern="[0-9]{10}"
+                placeholder="Enter 10-digit phone number"
+                required
+              />
+            </div>
+            <button type="submit">Register</button>
+          </form>
+        </div>
+        <!--------------- Table displaying Registered students -------------------->
+        <div class="table-container">
+          <h2>Registered Students</h2>
+          <p>Here is the list of all the students who have registered for the Course. Further details will be given
+            by our councelors. Login details like student id, course selected by the student, will be stored in a different
+            table.
+          </p>
+          <table id="studentsTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Student ID</th>
+                <th>Roll No</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Delete</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows will be added dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <!-- Courses section -->
+      <section id="courses" class="courses-section">
+        <h2>Our Courses</h2>
+        <div class="courses-grid">
+          <!-- Course 1 -->
+          <div class="course-card">
+            <img src="images/web.png" alt="Course 1" />
+            <div class="course-card-content">
+              <h3>Web Development</h3>
+              <p>
+                Learn the fundamentals of web development, including HTML, CSS,
+                and JavaScript.
+              </p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+
+          <!-- Course 2 -->
+          <div class="course-card">
+            <img src="images/datascience.jpg" alt="Course 2" />
+            <div class="course-card-content">
+              <h3>Data Science</h3>
+              <p>
+                Dive into data analysis, machine learning, and visualization
+                techniques.
+              </p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+
+          <!-- Course 3 -->
+          <div class="course-card">
+            <img src="images/graphics-design.jpg" alt="Course 3" />
+            <div class="course-card-content">
+              <h3>Graphic Design</h3>
+              <p>
+                Explore tools and techniques for creating stunning visual
+                content.
+              </p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+
+          <!-- Course 4 -->
+          <div class="course-card">
+            <img src="images/machine-learning.jpg" alt="Course 4" />
+            <div class="course-card-content">
+              <h3>AI and Machine Learning</h3>
+              <p>
+                Get hands-on experience with AI technologies and machine
+                learning algorithms.
+              </p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--------------- Contact us form -------------------->
+      <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+          <input
+            type="text"
+            id="contactName"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="email"
+            id="contactEmail"
+            placeholder="Your Email"
+            required
+          />
+          <input
+            type="text"
+            id="contactSubject"
+            placeholder="Subject"
+            required
+          />
+          <textarea
+            id="contactMessage"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">Submit</button>
+          <div id="contactFormFeedback"></div>
+        </form>
+      </section>
+    </main>
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <p>
+            Providing the best learning platform for students to register and
+            access a variety of courses.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#registerPage">Register</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="https://www.twitter.com/" aria-label="Twitter"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+            <a href="https://www.instagram.com/" aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="https://www.linkedin.com/" aria-label="LinkedIn"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">↑</button>
+    <script src="app.js"></script>
+  </body>
+</html>
